@@ -1,14 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="TacoPOP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +18,56 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j2E-Gb-6sO" customClass="HeaderView" customModule="TacoPOP" customModuleProvider="target">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tapo-POP" translatesAutoresizingMaskIntoConstraints="NO" id="AfP-ry-deA">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="2VK-V0-isC"/>
+                                            <constraint firstAttribute="width" constant="240" id="p7U-7v-4M1"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92377855330000003" green="0.92377855330000003" blue="0.92377855330000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="e0e-MU-32X"/>
+                                    <constraint firstItem="AfP-ry-deA" firstAttribute="centerX" secondItem="j2E-Gb-6sO" secondAttribute="centerX" id="p1h-mh-fB2"/>
+                                    <constraint firstItem="AfP-ry-deA" firstAttribute="centerY" secondItem="j2E-Gb-6sO" secondAttribute="centerY" id="prq-Pa-8dc"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XqF-0r-QAG">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2ec-rl-bfK">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="j2E-Gb-6sO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="G5v-Uj-ajF"/>
+                            <constraint firstItem="XqF-0r-QAG" firstAttribute="top" secondItem="j2E-Gb-6sO" secondAttribute="bottom" constant="20" id="Nld-3j-OuO"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XqF-0r-QAG" secondAttribute="bottom" constant="20" id="TIp-vv-69c"/>
+                            <constraint firstAttribute="trailing" secondItem="j2E-Gb-6sO" secondAttribute="trailing" id="dFg-cQ-Jcx"/>
+                            <constraint firstItem="j2E-Gb-6sO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dSE-F6-FJX"/>
+                            <constraint firstItem="XqF-0r-QAG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="l4N-Vx-4we"/>
+                            <constraint firstItem="XqF-0r-QAG" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="mx5-a9-1un"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="XqF-0r-QAG" id="Ydf-k7-izX"/>
+                        <outlet property="headerView" destination="j2E-Gb-6sO" id="504-XS-zTF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Tapo-POP" width="558" height="61"/>
+    </resources>
 </document>
